@@ -13,8 +13,8 @@ const Navbar = () => {
           <li>Contact</li>
         </ul>
         <div className="flex gap-7">
-          <button>Sign in</button>
-          <button>Sign up</button>
+          <button className="btn btn-soft btn-primary">Sign In</button>
+          <button className="btn btn-soft btn-secondary">Sign Up</button>
         </div>
       </nav>
     </div>
