@@ -6,7 +6,7 @@ import Tech from "./components/Tech";
 import Techdata from "./components/technogly/Techdata";
 import type { TechType } from "./type/TechType";
 
-const techdata=async():Promise<TechType>=>{
+const techdata=async():Promise<TechType[]>=>{
   const res=await fetch('../public/data.json');
   const data=await res.json();
   return data;
