@@ -1,4 +1,4 @@
-import React, { use } from "react";
+import { use } from "react";
 import type { TechType } from "../../type/TechType";
 import TechnologyCard from "./TechnologyCard";
 
