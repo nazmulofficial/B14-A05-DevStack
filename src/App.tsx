@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar";
 import Tech from "./components/Tech";
 import Techdata from "./components/technogly/Techdata";
 import type { TechType } from "./type/TechType";
+import Footer from "./footer";
 
 const techdata=async():Promise<TechType[]>=>{
   const res=await fetch('../public/data.json');
@@ -23,6 +24,7 @@ function App() {
       <Suspense fallback={<div>Loading...</div>}>
       <Techdata  techPromise={techPromise} />
       </Suspense>
+      <Footer />
     </div>
     </>
   );

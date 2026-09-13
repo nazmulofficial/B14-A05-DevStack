@@ -34,8 +34,9 @@ const TechnologyCard = ({ TechData }: { TechData: any[] }) => {
 
   return (
     <>
-      <div className="flex flex-col gap-5 lg:flex-row">
-        <div className="grid flex-1 grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
+      <div className="mx-auto flex w-[288px] flex-col gap-6 lg:w-full lg:flex-row">
+
+        <div className="grid w-full grid-cols-1 gap-5 sm:grid-cols-2 lg:flex-1 lg:grid-cols-3">
           {TechData.map((Tech) => {
             const isAdded = stack.some(
               (item) => item.id === Tech.id,
@@ -44,33 +45,33 @@ const TechnologyCard = ({ TechData }: { TechData: any[] }) => {
             return (
               <div
                 key={Tech.id}
-                className={`rounded-2xl border bg-white p-5 shadow-sm transition-all duration-300 ${
+                className={`rounded-2xl border bg-white p-4 shadow-sm transition-all duration-300 sm:p-5 ${
                   isAdded
                     ? "border-green-500 shadow-md shadow-green-100"
                     : "border-slate-200"
                 }`}
               >
-                <div className="flex items-center justify-between">
+                <div className="flex items-center justify-between gap-3">
                   <img
                     src={Tech.icon}
                     alt={Tech.name}
                     className="h-10 w-10 object-contain"
                   />
 
-                  <span className="rounded-full bg-blue-50 px-3 py-1 text-xs font-medium text-blue-600">
+                  <span className="rounded-full bg-blue-50 px-2.5 py-1 text-xs font-medium text-blue-600">
                     {Tech.badge}
                   </span>
                 </div>
 
-                <h2 className="mt-4 text-xl font-bold text-slate-900">
+                <h2 className="mt-4 text-lg font-bold text-slate-900 sm:text-xl">
                   {Tech.name}
                 </h2>
 
-                <p className="mt-2 min-h-[60px] text-sm leading-5 text-slate-500">
+                <p className="mt-2 min-h-15 text-sm leading-5 text-slate-500">
                   {Tech.description}
                 </p>
 
-                <div className="mt-4 flex items-center justify-between gap-2">
+                <div className="mt-4 flex flex-wrap items-center justify-between gap-2">
                   <span className="rounded-md bg-slate-100 px-2.5 py-1 text-xs font-medium text-slate-600">
                     {Tech.category}
                   </span>
@@ -81,7 +82,9 @@ const TechnologyCard = ({ TechData }: { TechData: any[] }) => {
                 </div>
 
                 <div className="mt-3 flex items-center gap-1 text-sm">
-                  <span className="text-yellow-400">★</span>
+                  <span className="text-yellow-400">
+                    ★
+                  </span>
 
                   <span className="font-semibold text-slate-700">
                     {Tech.rating}
@@ -95,14 +98,14 @@ const TechnologyCard = ({ TechData }: { TechData: any[] }) => {
                 {isAdded ? (
                   <button
                     disabled
-                    className="mt-5 w-full cursor-not-allowed rounded-lg bg-green-100 py-3 text-sm font-medium text-green-700"
+                    className="mt-5 w-full cursor-not-allowed rounded-lg bg-green-100 py-2.5 text-sm font-medium text-green-700 sm:py-3"
                   >
                     ✓ Added to Stack
                   </button>
                 ) : (
                   <button
                     onClick={() => handleAddToStack(Tech)}
-                    className="mt-5 w-full rounded-lg bg-black py-3 text-sm font-medium text-white transition hover:bg-slate-800"
+                    className="mt-5 w-full rounded-lg bg-black py-2.5 text-sm font-medium text-white transition hover:bg-slate-800 sm:py-3"
                   >
                     Add to Stack
                   </button>
@@ -112,7 +115,7 @@ const TechnologyCard = ({ TechData }: { TechData: any[] }) => {
           })}
         </div>
 
-        <div className="w-full shrink-0 text-center lg:w-[340px]">
+        <div className="w-full shrink-0 lg:w-[340px]">
           <YourStack
             stack={stack}
             onRemove={handleRemove}
@@ -128,6 +131,7 @@ const TechnologyCard = ({ TechData }: { TechData: any[] }) => {
         closeOnClick
         pauseOnHover
         draggable
+        className="!w-[90%] sm:!w-auto"
       />
     </>
   );
