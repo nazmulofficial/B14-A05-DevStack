@@ -1,12 +1,28 @@
 
+import { Suspense } from "react";
 import Hero from "./components/Hero";
 import Navbar from "./components/Navbar";
+import Tech from "./components/Tech";
+import Techdata from "./components/technogly/Techdata";
+import type { TechType } from "./type/TechType";
+
+const techdata=async():Promise<TechType>=>{
+  const res=await fetch('../public/data.json');
+  const data=await res.json();
+  return data;
+}
+
 function App() {
+  const techPromise=techdata();
   return (
     <>
     <div className="max-w-7xl mx-auto">
       <Navbar />
       <Hero />
+      <Tech />
+      <Suspense fallback={<div>Loading...</div>}>
+      <Techdata  techPromise={techPromise} />
+      </Suspense>
     </div>
     </>
   );
