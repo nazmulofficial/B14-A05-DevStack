@@ -31,7 +31,6 @@ const TechnologyCard = ({ TechData }: { TechData: any[] }) => {
   const handleRemoveAll = () => {
     setStack([]);
   };
-
   return (
     <>
       <div className="mx-auto flex w-[288px] flex-col gap-6 lg:w-full lg:flex-row">
@@ -41,7 +40,6 @@ const TechnologyCard = ({ TechData }: { TechData: any[] }) => {
             const isAdded = stack.some(
               (item) => item.id === Tech.id,
             );
-
             return (
               <div
                 key={Tech.id}
@@ -57,7 +55,6 @@ const TechnologyCard = ({ TechData }: { TechData: any[] }) => {
                     alt={Tech.name}
                     className="h-10 w-10 object-contain"
                   />
-
                   <span className="rounded-full bg-blue-50 px-2.5 py-1 text-xs font-medium text-blue-600">
                     {Tech.badge}
                   </span>
